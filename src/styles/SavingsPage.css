@@ -1,0 +1,562 @@
+/* SavingsPage.css - Complete Working Version */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.loading-savings {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 1rem;
+  color: #6C3BFF;
+  background: #F5F7FC;
+}
+
+.savings-dashboard {
+  display: flex;
+  min-height: 100vh;
+  background: #F5F7FC;
+  position: relative;
+}
+
+/* Mobile Menu Button */
+.mobile-menu-btn {
+  display: none;
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 1001;
+  background: #0B132B;
+  border: none;
+  color: white;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.mobile-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 999;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 260px;
+  background: #0B132B;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 28px 20px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  box-shadow: 2px 0 12px rgba(0, 0, 0, 0.06);
+  transition: left 0.3s ease;
+  z-index: 1000;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.logo img {
+  width: 36px;
+  height: 36px;
+  background: white;
+  border-radius: 10px;
+  padding: 6px;
+}
+
+.logo h1 {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.menu button {
+  background: transparent;
+  border: none;
+  color: #A0AEC0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 10px 14px;
+  text-align: left;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.menu button svg {
+  font-size: 1.2rem;
+}
+
+.menu button:hover {
+  background: rgba(108, 59, 255, 0.12);
+  color: white;
+}
+
+.menu button.active {
+  background: #6C3BFF;
+  color: white;
+}
+
+.logout-btn {
+  background: rgba(255, 82, 82, 0.08);
+  border: 1px solid rgba(255, 82, 82, 0.2);
+  color: #FF6B6B;
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.logout-btn:hover {
+  background: #FF5252;
+  color: white;
+}
+
+/* Main Content */
+.savings-main-content {
+  flex: 1;
+  padding: 28px 32px;
+  overflow-y: auto;
+}
+
+/* Desktop - Push content to the right */
+@media (min-width: 769px) {
+  .savings-main-content {
+    width: calc(100% - 260px);
+  }
+}
+
+/* Header */
+.savings-header-unique {
+  background: linear-gradient(135deg, #11998e, #38ef7d);
+  border-radius: 28px;
+  padding: 24px;
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: white;
+}
+
+.goal-icon {
+  font-size: 2.5rem;
+  background: rgba(255,255,255,0.2);
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.savings-header-text h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.savings-header-text p {
+  font-size: 0.75rem;
+  opacity: 0.9;
+}
+
+.savings-progress-ring {
+  margin-left: auto;
+  background: rgba(255,255,255,0.2);
+  width: 55px;
+  height: 55px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+/* Total Progress Card */
+.total-progress-card {
+  background: white;
+  border-radius: 20px;
+  padding: 24px;
+  margin-bottom: 24px;
+  border: 1px solid #EDF2F7;
+  text-align: center;
+}
+
+.progress-stats {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.progress-stats .stat {
+  text-align: center;
+}
+
+.progress-stats .stat span {
+  display: block;
+  font-size: 0.7rem;
+  color: #64748B;
+  margin-bottom: 4px;
+}
+
+.progress-stats .stat strong {
+  font-size: 1.2rem;
+  color: #0F172A;
+}
+
+.progress-bar-container {
+  background: #E2E8F0;
+  border-radius: 20px;
+  height: 10px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.progress-bar-fill {
+  background: linear-gradient(90deg, #11998e, #38ef7d);
+  height: 100%;
+  border-radius: 20px;
+  transition: width 0.3s;
+}
+
+.progress-percent {
+  font-size: 0.75rem;
+  color: #64748B;
+}
+
+/* Savings Goals List */
+.savings-goals-list {
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  border: 1px solid #EDF2F7;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #EDF2F7;
+}
+
+.section-header h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0F172A;
+}
+
+.add-goal-btn {
+  background: #6C3BFF;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+/* Goal Cards */
+.goal-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  margin-bottom: 12px;
+  background: #F8FAFE;
+  border-radius: 16px;
+  transition: all 0.2s;
+}
+
+.goal-card:hover {
+  transform: translateX(4px);
+  background: #F1F5F9;
+}
+
+.goal-icon-wrapper {
+  width: 50px;
+  height: 50px;
+  background: white;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.goal-emoji {
+  font-size: 1.8rem;
+}
+
+.goal-details {
+  flex: 1;
+}
+
+.goal-details h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0F172A;
+  margin-bottom: 6px;
+}
+
+.goal-amounts {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.goal-amounts .saved {
+  font-weight: 700;
+  color: #10B981;
+  font-size: 0.9rem;
+}
+
+.goal-amounts .target {
+  color: #94A3B8;
+  font-size: 0.75rem;
+}
+
+.goal-progress-bar {
+  background: #E2E8F0;
+  border-radius: 10px;
+  height: 6px;
+  overflow: hidden;
+  margin-bottom: 5px;
+}
+
+.goal-progress-fill {
+  background: #6C3BFF;
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.3s;
+}
+
+.goal-percent {
+  font-size: 0.65rem;
+  color: #64748B;
+}
+
+.add-money-btn {
+  background: #6C3BFF;
+  color: white;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.add-money-btn:hover {
+  background: #5a2fd6;
+  transform: scale(1.02);
+}
+
+/* Empty State */
+.empty-goals {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.empty-icon {
+  font-size: 3rem;
+  margin-bottom: 12px;
+  opacity: 0.5;
+}
+
+.empty-goals p {
+  color: #64748B;
+  margin: 4px 0;
+}
+
+.empty-goals .empty-sub {
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 24px;
+  padding: 24px;
+  width: 90%;
+  max-width: 350px;
+}
+
+.modal-content h3 {
+  margin-bottom: 16px;
+  font-size: 1.1rem;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  font-size: 0.9rem;
+}
+
+.modal-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.confirm-btn {
+  flex: 1;
+  padding: 12px;
+  background: #6C3BFF;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.cancel-btn {
+  flex: 1;
+  padding: 12px;
+  background: #F1F5F9;
+  color: #64748B;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+/* Mobile Bottom Navigation */
+.mobile-bottom-nav {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  justify-content: space-around;
+  align-items: center;
+  padding: 8px 12px 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  z-index: 100;
+}
+
+.bottom-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  background: transparent;
+  border: none;
+  color: #94A3B8;
+  font-size: 0.65rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 30px;
+}
+
+.bottom-nav-item svg {
+  font-size: 1.1rem;
+}
+
+.bottom-nav-item.active {
+  color: #6C3BFF;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .mobile-menu-btn {
+    display: flex;
+  }
+  
+  .mobile-bottom-nav {
+    display: flex;
+  }
+  
+  .sidebar {
+    position: fixed;
+    left: -280px;
+    top: 0;
+    width: 280px;
+  }
+  
+  .sidebar.mobile-open {
+    left: 0;
+  }
+  
+  .mobile-overlay {
+    display: block;
+  }
+  
+  .savings-main-content {
+    padding: 70px 16px 80px 16px;
+    width: 100%;
+  }
+  
+  .goal-card {
+    flex-wrap: wrap;
+  }
+  
+  .add-money-btn {
+    width: 100%;
+    margin-top: 8px;
+  }
+  
+  .progress-stats {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .savings-header-unique {
+    flex-wrap: wrap;
+  }
+  
+  .savings-progress-ring {
+    margin-left: 0;
+  }
+}

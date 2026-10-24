@@ -1,0 +1,299 @@
+/* DarkMode.css - Clean Dark Mode (Only background & text swap) */
+
+/* Light Mode (Default) */
+:root {
+  --bg-primary: #F5F7FC;
+  --bg-secondary: #FFFFFF;
+  --bg-tertiary: #F8FAFE;
+  --text-primary: #1A202C;
+  --text-secondary: #64748B;
+  --text-white: #FFFFFF;
+  --card-bg: #FFFFFF;
+  --border-light: #EDF2F7;
+  --sidebar-bg: #0B132B;
+  --sidebar-text: #A0AEC0;
+  --sidebar-text-active: #FFFFFF;
+}
+
+/* Dark Mode - Only background and text colors change */
+.dark-mode {
+  --bg-primary: #0A0F1C;
+  --bg-secondary: #111827;
+  --bg-tertiary: #1F2937;
+  --text-primary: #F1F5F9;
+  --text-secondary: #9CA3AF;
+  --card-bg: #1E293B;
+  --border-light: #334155;
+  --sidebar-bg: #020617;
+  --sidebar-text: #9CA3AF;
+  --sidebar-text-active: #FFFFFF;
+}
+
+/* Apply to body */
+body {
+  background: var(--bg-primary);
+  transition: background 0.3s ease;
+}
+
+/* ========= BACKGROUNDS ========= */
+.dashboard,
+.accounts-dashboard,
+.savings-dashboard,
+.settings-dashboard,
+.transfer-container,
+.card-page,
+.transactions-page {
+  background: var(--bg-primary) !important;
+}
+
+/* Cards - Background changes to dark */
+.stat-card,
+.form-card,
+.summary-card,
+.settings-card,
+.transactions-section,
+.categories-section,
+.spreadsheet-card,
+.goal-card,
+.account-card,
+.total-progress-card,
+.savings-goals-list,
+.accounts-balance-card,
+.credit-card,
+.transaction-card,
+.transaction-item {
+  background: var(--card-bg) !important;
+  border-color: var(--border-light) !important;
+}
+
+/* Headers */
+.accounts-header,
+.premium-header,
+.transfer-header,
+.transactions-header-unique,
+.card-top-section,
+.settings-header-unique {
+  background: var(--bg-secondary) !important;
+  border-color: var(--border-light) !important;
+}
+
+/* ========= TEXT COLORS ========= */
+/* Primary text (headings, important text) */
+h1, h2, h3, h4,
+.top-section h2,
+.accounts-top-section h2,
+.transfer-header h1,
+.card-top-section h2,
+.settings-header-text h2,
+.savings-header-text h2,
+.stat-number,
+.balance-amount,
+.success-amount,
+.tx-title,
+.goal-details h4,
+.account-name,
+.setting-item span,
+.card-holder p,
+.card-expiry p {
+  color: var(--text-primary) !important;
+}
+
+/* Secondary text (labels, dates, descriptions) */
+p, span, label,
+.top-section p,
+.accounts-top-section p,
+.transfer-header p,
+.card-top-section p,
+.tx-date,
+.stat-title,
+.stat-label,
+.balance-label,
+.summary-item span,
+.setting-item label,
+.goal-amounts .target,
+.goal-percent,
+.email-note,
+.demo-note-summary {
+  color: var(--text-secondary) !important;
+}
+
+/* ========= COLORED ELEMENTS STAY THE SAME ========= */
+/* Purple buttons and accents */
+.continue-btn,
+.add-goal-btn,
+.add-money-btn,
+.confirm-btn,
+.transfer-action-btn,
+.success-btn,
+.menu button.active,
+.account-tab-btn.active,
+.bottom-nav-item.active,
+.verify-btn,
+.save-btn {
+  background: #6C3BFF !important;
+  color: white !important;
+}
+
+/* Green (success, income, positive) */
+.tx-amount.credit,
+.stat-number[class*="credit"],
+.goal-amounts .saved,
+.success-icon,
+.stat-success {
+  color: #10B981 !important;
+}
+
+.stat-icon.received {
+  background: #D1FAE5 !important;
+  color: #10B981 !important;
+}
+
+/* Red (debit, expenses, negative, danger) */
+.tx-amount.debit,
+.stat-number[class*="debit"],
+.danger-text,
+.error-message,
+.pin-error,
+.logout-btn {
+  color: #EF4444 !important;
+}
+
+.stat-icon.sent {
+  background: #FEE2E2 !important;
+  color: #EF4444 !important;
+}
+
+/* Yellow/Warning */
+.stat-icon.monthly-sent {
+  background: #FEF3C7 !important;
+  color: #F59E0B !important;
+}
+
+/* Blue/Info */
+.stat-icon.monthly-received {
+  background: #E0E7FF !important;
+  color: #6C3BFF !important;
+}
+
+/* Purple gradients stay */
+.accounts-balance-card,
+.premium-account-card,
+.credit-card {
+  background: linear-gradient(135deg, #667eea, #764ba2) !important;
+  color: white !important;
+}
+
+.savings-header-unique {
+  background: linear-gradient(135deg, #11998e, #38ef7d) !important;
+  color: white !important;
+}
+
+/* ========= SIDEBAR ========= */
+.sidebar {
+  background: var(--sidebar-bg) !important;
+}
+
+.sidebar .menu button {
+  color: var(--sidebar-text) !important;
+}
+
+.sidebar .menu button:hover {
+  background: rgba(108, 59, 255, 0.12) !important;
+  color: var(--sidebar-text-active) !important;
+}
+
+.sidebar .menu button.active {
+  background: #6C3BFF !important;
+  color: white !important;
+}
+
+.logo h1 {
+  color: white !important;
+}
+
+/* ========= INPUTS ========= */
+.form-group input,
+.form-group select,
+.pin-input,
+.modal-content input {
+  background: var(--bg-tertiary) !important;
+  border-color: var(--border-light) !important;
+  color: var(--text-primary) !important;
+}
+
+.form-group input::placeholder {
+  color: var(--text-secondary) !important;
+}
+
+/* ========= MODAL ========= */
+.modal-content {
+  background: var(--card-bg) !important;
+}
+
+.modal-header {
+  border-bottom-color: var(--border-light) !important;
+}
+
+.modal-header h2 {
+  color: var(--text-primary) !important;
+}
+
+/* ========= MOBILE BOTTOM NAV ========= */
+.mobile-bottom-nav {
+  background: var(--card-bg) !important;
+  border-top-color: var(--border-light) !important;
+}
+
+.bottom-nav-item {
+  color: var(--text-secondary) !important;
+}
+
+.bottom-nav-item.active {
+  color: #6C3BFF !important;
+}
+
+/* ========= PROGRESS BARS ========= */
+.progress-bar-container,
+.goal-progress-bar {
+  background: var(--border-light) !important;
+}
+
+.progress-bar,
+.goal-progress-fill {
+  background: #6C3BFF !important;
+}
+
+/* ========= DONUT CHART ========= */
+.simple-donut {
+  background: conic-gradient(#6C3BFF 0% 35%, var(--border-light) 35% 100%) !important;
+}
+
+/* ========= BORDERS ========= */
+.transaction-row,
+.category-item,
+.setting-item,
+.summary-divider {
+  border-bottom-color: var(--border-light) !important;
+}
+
+/* ========= TOGGLE SWITCH ========= */
+.switch .slider {
+  background-color: var(--border-light) !important;
+}
+
+input:checked + .slider {
+  background-color: #6C3BFF !important;
+}
+
+/* ========= EMPTY STATES ========= */
+.empty-state,
+.empty-goals,
+.accounts-empty-state {
+  background: var(--card-bg) !important;
+}
+
+.empty-state p,
+.empty-goals p,
+.accounts-empty-state p {
+  color: var(--text-secondary) !important;
+}

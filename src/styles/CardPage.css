@@ -1,0 +1,582 @@
+/* CardPage.css - My Card Page Styling */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-size: 1rem;
+    color: #6C3BFF;
+    background: #F5F7FC;
+}
+
+/* ========= PAGE LAYOUT ========= */
+.card-page {
+    display: flex;
+    min-height: 100vh;
+    background: #F5F7FC;
+    position: relative;
+}
+
+/* Mobile Menu Button */
+.mobile-menu-btn {
+    display: none;
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 1001;
+    background: #0B132B;
+    border: none;
+    color: white;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.mobile-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+}
+
+/* Mobile Bottom Navigation */
+.mobile-bottom-nav {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 16px 20px;
+    box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.08);
+    border-top: 1px solid #EDF2F7;
+    z-index: 100;
+}
+
+.bottom-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    background: transparent;
+    border: none;
+    color: #94A3B8;
+    font-size: 0.7rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 30px;
+}
+
+/* ========= SIDEBAR ========= */
+.sidebar {
+    width: 260px;
+    background: #0B132B;
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 28px 20px;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    box-shadow: 2px 0 12px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.logo img {
+    width: 36px;
+    height: 36px;
+    background: white;
+    border-radius: 10px;
+    padding: 6px;
+}
+
+.logo h1 {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.menu button {
+    background: transparent;
+    border: none;
+    color: #A0AEC0;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 10px 14px;
+    text-align: left;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.menu button:hover {
+    background: rgba(108, 59, 255, 0.12);
+    color: white;
+}
+
+.menu button.active {
+    background: #6C3BFF;
+    color: white;
+}
+
+.logout-btn {
+    background: rgba(255, 82, 82, 0.08);
+    border: 1px solid rgba(255, 82, 82, 0.2);
+    color: #FF6B6B;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+/* ========= MAIN CONTENT ========= */
+.card-main-content {
+    flex: 1;
+    padding: 28px 32px;
+    overflow-y: auto;
+}
+
+.card-top-section {
+    margin-bottom: 28px;
+}
+
+.card-top-section h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1A202C;
+    margin-bottom: 4px;
+}
+
+.card-top-section p {
+    color: #64748B;
+    font-size: 0.85rem;
+}
+
+/* ========= CREDIT CARD DESIGN ========= */
+.card-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 32px;
+}
+
+.credit-card {
+    width: 450px;
+    max-width: 100%;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border-radius: 24px;
+    padding: 24px;
+    color: white;
+    box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s;
+}
+
+.credit-card.mastercard {
+    background: linear-gradient(135deg, #1E2A3A 0%, #0D1B2A 100%);
+}
+
+.credit-card.visa {
+    background: linear-gradient(135deg, #1A1A2E 0%, #2D2D44 100%);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.card-label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    opacity: 0.8;
+    letter-spacing: 0.5px;
+}
+
+.edit-card-btn {
+    background: rgba(255,255,255,0.15);
+    border: none;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.edit-card-btn:hover {
+    background: rgba(255,255,255,0.25);
+}
+
+.edit-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.save-btn, .cancel-btn {
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    border: none;
+}
+
+.save-btn {
+    background: #10B981;
+    color: white;
+}
+
+.cancel-btn {
+    background: rgba(255,255,255,0.2);
+    color: white;
+}
+
+.card-chip {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.chip {
+    width: 45px;
+    height: 35px;
+    background: linear-gradient(135deg, #E8B87D, #D4A05A);
+    border-radius: 8px;
+    position: relative;
+}
+
+.chip::before {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 22px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 4px;
+    top: 6px;
+    left: 8px;
+}
+
+.card-brand {
+    opacity: 0.9;
+}
+
+.card-number {
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 24px;
+    font-family: monospace;
+}
+
+.card-details {
+    display: flex;
+    gap: 32px;
+}
+
+.card-holder span, .card-expiry span {
+    font-size: 0.65rem;
+    opacity: 0.6;
+    text-transform: uppercase;
+}
+
+.card-holder p, .card-expiry p {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-top: 4px;
+}
+
+/* Edit Form */
+.card-edit-form {
+    margin: 16px 0;
+}
+
+.edit-field {
+    margin-bottom: 16px;
+}
+
+.edit-field label {
+    display: block;
+    font-size: 0.7rem;
+    opacity: 0.7;
+    margin-bottom: 6px;
+}
+
+.edit-field input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    border: none;
+    background: rgba(255,255,255,0.15);
+    color: white;
+    font-size: 0.9rem;
+    outline: none;
+}
+
+.edit-field input::placeholder {
+    color: rgba(255,255,255,0.4);
+}
+
+.edit-row {
+    display: flex;
+    gap: 16px;
+}
+
+.edit-field.half {
+    flex: 1;
+}
+
+/* Additional Cards */
+.additional-cards {
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 28px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    border: 1px solid #EDF2F7;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.section-header h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #0F172A;
+}
+
+.add-card-btn {
+    background: #6C3BFF;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.cards-list {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.mini-card {
+    flex: 1;
+    min-width: 180px;
+    background: linear-gradient(135deg, #1E293B, #0F172A);
+    border-radius: 16px;
+    padding: 16px;
+    color: white;
+}
+
+.mini-card.visa {
+    background: linear-gradient(135deg, #2D2D44, #1A1A2E);
+}
+
+.mini-card.mastercard {
+    background: linear-gradient(135deg, #1E2A3A, #0D1B2A);
+}
+
+.mini-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.mini-card-top span {
+    font-size: 0.7rem;
+    opacity: 0.7;
+}
+
+.mini-card-number {
+    font-family: monospace;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+.mini-card-balance {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+/* Card Transactions */
+.card-transactions {
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 80px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    border: 1px solid #EDF2F7;
+}
+
+.view-all {
+    font-size: 0.7rem;
+    color: #6C3BFF;
+    cursor: pointer;
+}
+
+.transaction-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.transaction-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 0;
+    border-bottom: 1px solid #F0F2F5;
+}
+
+.transaction-icon {
+    width: 44px;
+    height: 44px;
+    background: #F1F5F9;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.transaction-info {
+    flex: 1;
+}
+
+.transaction-info h4 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #1E293B;
+}
+
+.transaction-info p {
+    font-size: 0.7rem;
+    color: #94A3B8;
+}
+
+.transaction-amount {
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.transaction-amount.negative {
+    color: #EF4444;
+}
+
+/* ========= RESPONSIVE ========= */
+@media (max-width: 768px) {
+    .mobile-menu-btn {
+        display: flex;
+    }
+    
+    .mobile-bottom-nav {
+        display: flex;
+    }
+    
+    .sidebar {
+        position: fixed;
+        left: -280px;
+        top: 0;
+        width: 280px;
+        z-index: 1000;
+        transition: left 0.3s ease;
+    }
+    
+    .sidebar.mobile-open {
+        left: 0;
+    }
+    
+    .mobile-overlay {
+        display: block;
+    }
+    
+    .card-main-content {
+        padding: 70px 16px 80px 16px;
+    }
+    
+    .credit-card {
+        padding: 20px;
+    }
+    
+    .card-number {
+        font-size: 1.1rem;
+        letter-spacing: 1px;
+    }
+    
+    .cards-list {
+        flex-direction: column;
+    }
+    
+    .mini-card {
+        min-width: auto;
+    }
+    
+    .edit-row {
+        flex-direction: column;
+        gap: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .card-number {
+        font-size: 0.9rem;
+    }
+    
+    .card-details {
+        gap: 20px;
+    }
+    
+    .edit-field input {
+        padding: 10px;
+        font-size: 0.85rem;
+    }
+}
